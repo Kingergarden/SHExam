@@ -69,6 +69,7 @@
 
 <script>
 import axios from 'axios'
+import strings from './helpers/strings'
 
 export default {
   data () {
@@ -80,7 +81,7 @@ export default {
   },
   mounted () {
   axios
-    .get('https://api.themoviedb.org/3/movie/top_rated?api_key=5dc9a3781f42af69c2b5049477186671&language=en-US&')
+    .get(strings.API_URL1)
     .then(response => {
      this.wholeResponse = response.data.results;
      

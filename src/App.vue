@@ -16,7 +16,7 @@
               color="warning"
               dark
               >
-                 {{}}
+                 {{this.btnName}}
             </v-btn>
           </div>
     </v-app-bar>
@@ -38,26 +38,25 @@ export default {
 
   data: () => ({
     number: 1,
+    btnName: "CHANGE TO TV SHOWS",
     changedDirections: false
   }),
 
   methods: {
       changeDirection(){
 
-        debugger
-          console.log (this.$router.components);
-
                 if(!this.changedDirections)
                 {
                   this.changedDirections = 1;
                   this.$router.push('/tvshows/');
+                  this.btnName = "CHANGE TO MOVIES"
                 }
 
                 else
                 {
                     this.changedDirections = 0;
                     this.$router.push('/movies/')
-
+                    this.btnName = "CHANGE TO TV SHOWS"
                 }
 
       }

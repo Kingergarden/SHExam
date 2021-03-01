@@ -68,9 +68,69 @@
 
 
 <script>
+
 import axios from 'axios'
+import strings from './helpers/strings'
+
+
+  /* arhitektura primanja api poziva iz kontrolera
+
+
+  import {mapGetters} from 'vuex'
+
+  export default {
+  data () {
+    return {
+      //wholeResponse: [],
+      imagePath : "https://image.tmdb.org/t/p/original/",
+      loading: true,
+    }
+  },
+
+  updated(){},
+
+  components: {},
+
+  computed: {
+    ...mapGetters({
+
+          response: "tvshowsAPI/getShowsResponses"
+
+      }
+    ), 
+
+        responseAPI: {
+            get(){
+                
+                return this.response;
+            },
+
+          set(value){
+              return value;
+          }
+
+        }
+
+  },
+
+  mounted () {
+
+              this.$store.dispatch("tvshowsAPI/fetchApiData");          
+
+  }, 
+
+  methods: {
+
+
+
+  }
+}
+*/ 
 
 export default {
+
+
+  
   data () {
     return {
       wholeResponse: [],
@@ -80,7 +140,7 @@ export default {
   },
   mounted () {
   axios
-    .get('https://api.themoviedb.org/3/tv/top_rated?api_key=5dc9a3781f42af69c2b5049477186671&language=en-US&page=1')
+    .get(strings.API_URL)
     .then(response => {
      this.wholeResponse = response.data.results;
      
@@ -90,8 +150,9 @@ export default {
       console.log(error)
     })
   }, 
-
   methods: {
   }
 }
+
+
 </script>

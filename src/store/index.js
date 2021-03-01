@@ -3,6 +3,9 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import tvshowsAPI from './modules/tvshowsAPI'
+
+
 export default new Vuex.Store({
   state: {
   },
@@ -11,5 +14,6 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    tvshowsAPI
   }
 })
